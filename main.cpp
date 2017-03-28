@@ -1,35 +1,30 @@
 #include <iostream>
-#include <string.h>
-#include <stdlib.h>
-#include <stdio.h>
 
 using namespace std;
-
-int numero;
-int centinaia=0;
-int decine=0;
-int unita=0;
+void ordinamentovettore (int [], int);
 int main()
 {
-    cout << "ESERCIZIO 30" << endl;
-    cout << "inserisci un numero intero (inferiore a mille) che te lo scompongo ";
-    cin >> numero;
-
-    while (numero>100) {
-      numero=numero-100;
-      centinaia++;
-    }
-    while (numero>10) {
-        numero=numero-10;
-        decine++;
-    }
-    while (numero>0) {
-        numero=numero-1;
-        unita++;
-    }
-cout << "centinaia " <<centinaia << endl;
-cout << "decine " <<decine << endl;
-cout << "unita " << unita<< endl;
-
-
+  int i=0;
+  cout << "Dimensione del vettore: ";
+  cin >>i;
+  int v[i];
+  for (int x=0; x<(i);x++) {
+    cout << "Inserisci il " << x+1<< " elemento: ";
+    cin >> v[x];
+     }
+ordinamentovettore(v,i);
+}
+void ordinamentovettore(int vet[], int n) {
+int i,j,comodo,minimo;
+for (j=0;j<n;j++) {
+minimo=vet[j];
+for (i=j;i<n;i++ ) { //scovamento dell'elemento minimo
+ if ((vet[i])<=minimo) {
+        minimo=vet[i]; // shift dell'elemento minimo con l'elemento della cella nel primo posto
+        vet[i]=vet[j];
+        vet[j]=minimo;
+ }
+}
+cout << vet[j] << endl;
+}
 }
